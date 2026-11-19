@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penalty Legends 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header>
+    <small>THE ULTIMATE FOOTBALL EXPERIENCE</small>
+    <h1>PENALTY <span>LEGENDS</span></h1>
+    <p>WORLD CHAMPIONSHIP • 2026</p>
+  </header>
+
+  <!-- MAIN MENU -->
+  <section id="menu" class="panel setup">
+
+    <div>
+      <h2>🏆 SELECT TEAMS</h2>
+
+      <div class="teams">
+
+        <div class="team">
+          <label for="home">YOUR TEAM</label>
+          <select id="home"></select>
+
+          <div id="homeKit" class="kit">
+            <div class="sleeves"></div>
+            <div class="shirt">
+              <small id="kitName">CAPTAIN</small>
+              <strong id="kitNumber">10</strong>
+            </div>
+            <div class="shorts"></div>
+          </div>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="team">
+          <label for="away">OPPONENT</label>
+          <select id="away"></select>
+
+          <div id="awayKit" class="kit">
+            <div class="sleeves"></div>
+            <div class="shirt">
+              <small>CPU</small>
+              <strong>1</strong>
+            </div>
+            <div class="shorts"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PLAYER CUSTOMIZATION -->
+    <div>
+      <h2>👕 PLAYER CUSTOMIZATION</h2>
+
+      <label for="player">PLAYER NAME</label>
+      <input id="player" value="CAPTAIN" maxlength="12">
+
+      <label for="number">JERSEY NUMBER</label>
+      <input id="number" type="number" min="1" max="99" value="10">
+
+      <label for="kitStyle">JERSEY STYLE</label>
+      <select id="kitStyle">
+        <option value="home">Home Kit</option>
+        <option value="away">Away Kit</option>
+      </select>
+
+      <label for="difficulty">GOALKEEPER DIFFICULTY</label>
+      <select id="difficulty">
+        <option value="easy">Rookie</option>
+        <option value="normal" selected>Professional</option>
+        <option value="hard">Legendary</option>
+      </select>
+
+      <button id="start" class="primary wide">
+        ⚽ ENTER THE STADIUM
+      </button>
+
+      <p class="note">Fully offline. No external assets required.</p>
+    </div>
+
+  </section>
+
+  <!-- GAME SCREEN -->
+  <section id="game" class="hidden">
+
+    <div class="scoreboard">
+      <div class="side">
+        <b id="homeName"></b>
+        <div id="homeDots" class="dots"></div>
+      </div>
+
+      <div class="score">
+        <span id="homeScore">0</span>
+        :
+        <span id="awayScore">0</span>
+      </div>
+
+      <div class="side">
+        <b id="awayName"></b>
+        <div id="awayDots" class="dots"></div>
+      </div>
+    </div>
+
+    <div class="game-layout">
+
+      <div>
+        <div class="arena">
+          <canvas id="canvas" width="960" height="600"></canvas>
+
+          <div id="announcement" class="announcement">
+            SELECT YOUR TARGET
+          </div>
+        </div>
+
+        <div class="status">
+          <span id="round">ROUND 1 / 5</span>
+          <span id="turn">YOUR PENALTY</span>
+        </div>
+      </div>
+
+      <!-- SHOOTING CONTROLS -->
+      <div class="controls">
+        <h3>🎯 SHOT TARGET</h3>
+        <p class="note">Choose one of the 9 goal zones.</p>
+
+        <div id="aimGrid" class="aim-grid"></div>
+
+        <div class="power-line">
+          <b>⚡ KICK POWER</b>
+          <b id="powerValue">65%</b>
+        </div>
+
+        <input id="power" type="range" min="20" max="100" value="65">
+
+        <p class="note">
+          Higher power makes saves harder, but increases
+          the risk of missing.
+        </p>
+
+        <button id="shoot" class="primary wide">
+          ⚽ TAKE THE SHOT
+        </button>
+
+        <button id="sound" class="secondary wide">
+          🔊 SOUND ON
+        </button>
+
+        <button id="restart" class="secondary wide">
+          ↩ NEW MATCH
+        </button>
+
+        <p class="note">
+          Keyboard: Arrow Keys to aim, Space to shoot.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="results" class="panel result hidden">
+    <div class="trophy" id="trophy">🏆</div>
+
+    <h2 id="resultTitle"></h2>
+    <h3 id="finalScore"></h3>
+    <p id="resultInfo"></p>
+
+    <button id="playAgain" class="primary wide">
+      PLAY AGAIN
+    </button>
+  </section>
+
+  <footer>
+    PENALTY LEGENDS 2026 • HTML5 • CSS3 • JAVASCRIPT
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

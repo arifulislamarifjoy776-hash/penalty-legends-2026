@@ -1,0 +1,479 @@
+
+:root {
+  --gold: #ffd166;
+  --dark: #071121;
+  --blue: #173453;
+  --text: #edf5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, #244869, #070d1a 75%);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1120px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header small {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 55px);
+  margin: 8px 0;
+}
+
+h1 span {
+  color: var(--gold);
+}
+
+header p {
+  color: #a7bdd3;
+}
+
+.panel {
+  background: linear-gradient(145deg, #172d49, #0a1628);
+  border: 1px solid #385475;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 20px 60px #0008;
+  animation: fadeUp .6s ease both;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h2 {
+  color: var(--gold);
+  font-size: 20px;
+}
+
+.setup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.teams {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.team {
+  flex: 1;
+  min-width: 0;
+  background: #0b192c;
+  padding: 15px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.vs {
+  font-size: 25px;
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow: 0 0 20px #ffbf4777;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: #c5d4e7;
+  margin: 12px 0 7px;
+}
+
+select,
+input {
+  width: 100%;
+  background: #091526;
+  color: white;
+  border: 1px solid #49617c;
+  padding: 11px;
+  border-radius: 9px;
+  font: inherit;
+}
+
+select:focus,
+input:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* JERSEY PREVIEW */
+
+.kit {
+  --shirt: #75cfff;
+  --stripe: white;
+  --ink: #15243a;
+  position: relative;
+  width: 110px;
+  height: 135px;
+  margin: 20px auto 0;
+  filter: drop-shadow(0 12px 12px #0009);
+  animation: jerseyFloat 3s ease-in-out infinite;
+}
+
+.sleeves {
+  position: absolute;
+  width: 110px;
+  height: 60px;
+  background: var(--shirt);
+  clip-path: polygon(
+    20% 0, 80% 0, 100% 35%, 85% 95%,
+    70% 65%, 30% 65%, 15% 95%, 0 35%
+  );
+}
+
+.shirt {
+  position: absolute;
+  left: 23px;
+  top: 4px;
+  width: 64px;
+  height: 103px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--shirt) 0 17px,
+    var(--stripe) 17px 29px
+  );
+  text-align: center;
+  padding-top: 35px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.shirt small {
+  display: block;
+  font-size: 9px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.shirt strong {
+  font-size: 33px;
+}
+
+.shorts {
+  position: absolute;
+  top: 107px;
+  left: 28px;
+  width: 54px;
+  height: 26px;
+  background: #e8eef8;
+  clip-path: polygon(
+    0 0, 100% 0, 95% 100%, 55% 100%,
+    50% 55%, 45% 100%, 5% 100%
+  );
+}
+
+/* BUTTONS */
+
+button {
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform .2s,
+    filter .2s,
+    box-shadow .2s;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: linear-gradient(110deg, #ffe38a, #f4ab37);
+  color: #111c2d;
+  border: 0;
+  border-radius: 11px;
+  padding: 15px;
+  font-weight: 900;
+  box-shadow: 0 7px 20px #f4ab3733;
+}
+
+.primary:hover:not(:disabled) {
+  box-shadow: 0 9px 28px #f4ab3766;
+}
+
+.wide {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.secondary {
+  background: #263d59;
+  color: white;
+  border: 1px solid #49617c;
+  border-radius: 10px;
+  padding: 11px;
+}
+
+.note {
+  color: #9db3cc;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* SCOREBOARD */
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #0c192b;
+  border: 1px solid #385475;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.scoreboard .side {
+  width: 35%;
+  min-width: 0;
+}
+
+.scoreboard .side:last-child {
+  text-align: right;
+}
+
+.scoreboard b {
+  overflow-wrap: anywhere;
+}
+
+.dots {
+  color: var(--gold);
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+.score {
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* STADIUM */
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 15px;
+}
+
+.arena {
+  position: relative;
+  border: 2px solid #45617d;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #071526;
+  box-shadow: 0 15px 45px #0007;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  touch-action: none;
+}
+
+.announcement {
+  position: absolute;
+  top: 7%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--gold);
+  font-size: clamp(20px, 3vw, 35px);
+  font-weight: 1000;
+  text-shadow: 0 3px 12px #000;
+  pointer-events: none;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #0d1c31;
+  font-size: 12px;
+  color: #bed0e5;
+}
+
+/* SHOOTING CONTROLS */
+
+.controls {
+  padding: 17px;
+  border-radius: 16px;
+  background: #10213a;
+  border: 1px solid #3b5572;
+}
+
+.controls h3 {
+  color: var(--gold);
+  font-size: 15px;
+}
+
+.aim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin: 15px 0;
+}
+
+.aim-grid button {
+  height: 52px;
+  border-radius: 9px;
+  background: #214263;
+  border: 1px solid #51708d;
+  color: white;
+  font-size: 22px;
+}
+
+.aim-grid button.active {
+  background: var(--gold);
+  color: #091526;
+  box-shadow: 0 0 0 2px white inset;
+}
+
+input[type="range"] {
+  accent-color: var(--gold);
+  padding: 0;
+}
+
+.power-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 10px;
+}
+
+.result {
+  max-width: 550px;
+  margin: auto;
+  text-align: center;
+}
+
+.trophy {
+  font-size: 75px;
+  animation: trophyBounce 2s ease-in-out infinite;
+}
+
+footer {
+  text-align: center;
+  color: #829ab4;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 25px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jerseyFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px #ffd16655;
+  }
+  50% {
+    text-shadow: 0 0 28px #ffd166aa;
+  }
+}
+
+@keyframes trophyBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .setup,
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 10px;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+
+  .teams {
+    gap: 5px;
+  }
+
+  .team {
+    padding: 8px 4px;
+  }
+
+  .kit {
+    transform: scale(.8);
+    margin-bottom: -15px;
+    animation: none;
+  }
+
+  .vs {
+    font-size: 18px;
+  }
+
+  .dots {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .scoreboard b {
+    font-size: 12px;
+  }
+}
